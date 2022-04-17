@@ -14,6 +14,8 @@ const InputColumn = (props) => {
         name={props.name}
         type={props.type}
         placeholder={props.holder}
+        as={props.as}
+        rows={props.rows}
       />
     </>
   );

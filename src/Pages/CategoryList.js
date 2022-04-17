@@ -24,7 +24,7 @@ const CategoryList = () => {
         <tbody>
           {data.map((item) => {
             const handleEdit = () => {
-              navigate("/edit-product/" + item.id);
+              navigate("/edit-category/" + item.id);
             };
             return (
               <tr>

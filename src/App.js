@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainNavbar from "./Component/MainNavbar";
 import { PrivateOut, PrivateRoute } from "./Component/PrivateRoute";
-import { CategoryList, DetailPage, EditProduct, HomePages, LoginPages, NotFound, Profile, RegisterPages } from "./Pages";
+import { CategoryList, DetailPage, EditCategory, EditProduct, HomePages, LoginPages, NotFound, ProductList, Profile, RegisterPages } from "./Pages";
 
 function App() {
   // const [isLogin, setIslogin] = useState(localStorage.getItem('user'))
@@ -26,6 +26,8 @@ function App() {
           <Route path="/detail-page/:id" element={<DetailPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/category-list" element={<CategoryList />} />
+          <Route path="/product-list" element={<ProductList />} />
+          <Route path="/edit-category/:id" element={<EditCategory />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
           {/* <Route path="/logout" /> */}
         </Route>

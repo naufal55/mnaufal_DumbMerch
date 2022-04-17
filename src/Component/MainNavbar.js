@@ -25,7 +25,7 @@ const MainNavbar = (props) => {
             isAdmin ? 
             <>
             <NavLink label="Category" color="text-light" click={()=>navigate('/category-list')}/>
-            <NavLink label="Product" color="text-light" to="#link"/>  
+            <NavLink label="Product" color="text-light" click={()=>navigate('/product-list')} />  
             </>
             :
             <NavLink label="Profile" color="text-light" click={handleProf}/>  
