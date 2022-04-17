@@ -5,9 +5,8 @@ import Logo from "../Assets/Logo.png";
 import NavLink from "../Atom/NavLink";
 
 const MainNavbar = (props) => {
-  const {isAdmin, setIsLogin} = useState(true)
-
-  // const isAdmin = true
+  // const {isAdmin, setIsLogin} = useState(true)
+  const isAdmin = props.admin
   const navigate = useNavigate()
 
   const handleProf = () => {
@@ -25,7 +24,7 @@ const MainNavbar = (props) => {
           {
             isAdmin ? 
             <>
-            <NavLink label="Category" color="text-light" to="#link"/>
+            <NavLink label="Category" color="text-light" click={()=>navigate('/category-list')}/>
             <NavLink label="Product" color="text-light" to="#link"/>  
             </>
             :
