@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainNavbar from "./Component/MainNavbar";
+import { PrivateOut, PrivateRoute } from "./Component/PrivateRoute";
+import { HomePages,LoginPages, NotFound, RegisterPages } from "./Pages";
 
 function App() {
+const isLogin = false
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    {isLogin?<MainNavbar/>:''}
+      <Routes>
+        <Route path='*' element={<NotFound />} />
+        <Route path="/" element={<PrivateOut login={isLogin}/>}> {/* if false */}
+        <Route path="/" element={<LoginPages />} />
+          <Route path="/login" element={<LoginPages />} /> 
+          <Route path="/register" element={<RegisterPages />} />
+        </Route>
+        <Route path="/" element={<PrivateRoute login={isLogin}/>}> {/* if false */}
+          <Route path="/homepage" element={<HomePages />} />
+          <Route path="/a" element={<HomePages />} />
+          <Route path="/b" element={<HomePages />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
