@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainNavbar from "./Component/MainNavbar";
 import { PrivateOut, PrivateRoute } from "./Component/PrivateRoute";
-import { HomePages, LoginPages, NotFound, RegisterPages } from "./Pages";
+import { DetailPage, HomePages, LoginPages, NotFound, RegisterPages } from "./Pages";
 
 function App() {
   // const [isLogin, setIslogin] = useState(localStorage.getItem('user'))
@@ -23,6 +23,7 @@ function App() {
         <Route path="/" element={<PrivateRoute login={isLogin} />}>
           {/* if false */}
           <Route path="/homepage" element={<HomePages />} />
+          <Route path="/detail-page/:id" element={<DetailPage />} />
           {/* <Route path="/logout" /> */}
         </Route>
       </Routes>

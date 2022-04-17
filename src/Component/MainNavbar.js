@@ -13,6 +13,7 @@ const MainNavbar = (props) => {
   const handleProf = () => {
     navigate('/profile')
   }
+  
 
   return (
     <Navbar bg="none" expand="lg" className="align-items-center navbar-light">
@@ -31,7 +32,6 @@ const MainNavbar = (props) => {
             :
             <NavLink label="Profile" color="text-light" click={handleProf}/>  
           }
-            
             <NavLink label="Logout" color="text-light" to="#link"/>
           </Nav>
         </Navbar.Collapse>
