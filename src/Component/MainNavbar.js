@@ -13,12 +13,11 @@ const MainNavbar = (props) => {
   const handleProf = () => {
     navigate('/profile')
   }
-  
 
   return (
     <Navbar bg="none" expand="lg" className="align-items-center navbar-light">
       <Container>
-        <Navbar.Brand href="#home"><img src={Logo} width={50} alt="logo"/></Navbar.Brand>
+        <Navbar.Brand onClick={()=>navigate('/')}><img src={Logo} width={50} alt="logo"/></Navbar.Brand>
         <Navbar.Toggle className="text-light" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className=" me-auto justify-content-end" id="basic-navbar-nav">
           <Nav className="fw-bold">
