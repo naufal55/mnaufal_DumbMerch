@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import { Container, Nav, Navbar} from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import Logo from "../Assets/Logo.png";
 import NavLink from "../Atom/NavLink";
 
 const MainNavbar = (props) => {
-  const {isLogin, setIsLogin} = useState(false)
+  const {isAdmin, setIsLogin} = useState(true)
+
+  // const isAdmin = true
+  const navigate = useNavigate()
+
+  const handleProf = () => {
+    navigate('/profile')
+  }
+
   return (
     <Navbar bg="none" expand="lg" className="align-items-center navbar-light">
       <Container>
@@ -14,13 +23,13 @@ const MainNavbar = (props) => {
           <Nav className="fw-bold">
           <NavLink label="Complain" color="text-light" to="#link"/>
           {
-            isLogin ? 
+            isAdmin ? 
             <>
             <NavLink label="Category" color="text-light" to="#link"/>
             <NavLink label="Product" color="text-light" to="#link"/>  
             </>
             :
-            <NavLink label="Profile" color="text-light" to="#link"/>  
+            <NavLink label="Profile" color="text-light" click={handleProf}/>  
           }
             
             <NavLink label="Logout" color="text-light" to="#link"/>

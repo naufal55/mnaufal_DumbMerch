@@ -6,7 +6,6 @@ import MainButton from "../Atom/MainButton";
 
 const CardFormLog = (props) => {
   const navigate = useNavigate()
-
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -27,17 +26,12 @@ const CardFormLog = (props) => {
     e.preventDefault(); //mencegah reload
     //print state value with console.log here
     console.log(state); //tampilkan yang diketik disini
-
     // const user = JSON.stringify(state)
-    // localStorage.setItem('user', user)
     // const data = localStorage.getItem('user')
     // const dataUser =  JSON.parse(data)
     // console.log(dataUser);
   };
 
-  const handleLogin = () => {
-    navigate('/homepage')
-  }
   return (
     <>
       <Col md={4} sm={12} className="bg-dark rounded-3 h-100 pb-2">
@@ -60,7 +54,7 @@ const CardFormLog = (props) => {
                 holder="Password"
               />
             </div>
-            <MainButton click={handleLogin} type="button" btn={props.btnName} color="danger" />
+            <MainButton click={props.click} type="button" btn={props.btnName} color="danger" />
           </Form>
         </Card.Body>
       </Col>
