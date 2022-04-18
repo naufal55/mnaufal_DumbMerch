@@ -20,7 +20,7 @@ const MainNavbar = (props) => {
         <Navbar.Toggle className="text-light" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className=" me-auto justify-content-end" id="basic-navbar-nav">
           <Nav className="fw-bold">
-          <NavLink label="Complain" color="text-light" to="#link"/>
+          <NavLink label="Complain" color="text-light" click={()=>navigate('/complain')}/>
           {
             isAdmin ? 
             <>

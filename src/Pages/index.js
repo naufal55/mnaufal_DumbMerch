@@ -8,6 +8,6 @@ import NotFound from "./NotFound";
 import ProductList from "./ProductList";
 import Profile from "./Profile";
 import RegisterPages from "./RegisterPages";
+import ChatComplain from "./ChatComplain";
 
-
-export {EditProduct,EditCategory,Profile,DetailPage,NotFound,LoginPages, RegisterPages, HomePages, CategoryList,ProductList}
+export {ChatComplain, EditProduct,EditCategory,Profile,DetailPage,NotFound,LoginPages, RegisterPages, HomePages, CategoryList,ProductList}
