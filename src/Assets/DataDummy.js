@@ -1,4 +1,4 @@
-const person = [
+const ListBarang = [
   {
     id: 0,
     namabarang: "Mouse",
@@ -32,4 +32,4 @@ const person = [
   },
 ];
 
-export default person;
+export default ListBarang;
