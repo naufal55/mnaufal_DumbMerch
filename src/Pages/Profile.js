@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import CardImage from "../Component/CardImage";
 import foto from "../Assets/foto.png";
-import item from "../Assets/item1.png";
-import logo from "../Assets/Logo.png";
+import CardTransaction from "../Component/CardTransaction";
+import CardRating from "../Component/CardRating";
+import { useNavigate } from "react-router-dom";
+
 
 const Profile = () => {
+  const navigate = useNavigate()
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true)
+
+  const [star,setStar] = useState(0)
+  const handleRate = (set)=>{
+    console.log(star)
+    setStar(set)
+  }
+  const handleSubmit = ()=>{
+    setShow(false);
+    localStorage.setItem("star", star);
+    navigate('/homepage')
+  }
+ 
   return (
     <Container className="mt-3">
       <Row className="d-flex justify-content-center align-items-start my-auto bg-none">
@@ -44,24 +62,20 @@ const Profile = () => {
         </div>
         <div className="col-sm-12 col-md-5">
           <h4 className="text-danger my-4 ">My Transaction</h4>
-          <div>
-            <Card className="bg-dark">
-              <Card.Body className="py-2">
-                <Row className="align-items-center">
-                  <CardImage md={3} sm={3} src={item} />
-                  <Col md={6} style={{fontSize:"10px"}}>
-                    <h5 className="text-danger my-1">Mouse</h5>
-                    <p className="text-danger my-1">Saturday, 14 juli 2022</p>
-                    <p className="text-light mb-4">Price : Rp.300.000</p>
-                    <p className="text-light my-1 fw-bold">Sub Total : Rp.300.000</p>
-                  </Col>
-                  <CardImage md={3} sm={3} src={logo} />
-                </Row>
-              </Card.Body>
-            </Card>
-          </div>
+         
+          <CardTransaction 
+            namabarang="Mouse" 
+            tglBeli="Saturday, 14 April 2022" 
+            harga="300.000" 
+            total="300.000"
+            click={handleShow}
+            val={localStorage.getItem("star")}
+            per={localStorage.getItem("star")}
+            /> 
+          
         </div>
       </Row>
+      <CardRating rate={handleRate} submit={handleSubmit} show={show} close={handleClose}/>
     </Container>
   );
 };

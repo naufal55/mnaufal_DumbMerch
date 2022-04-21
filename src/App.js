@@ -6,19 +6,23 @@ import { CategoryList, ChatComplain, DetailPage, EditCategory, EditProduct, Home
 
 
 function App() {
-  // const [isLogin, setIslogin] = useState(localStorage.getItem('user'))
   // const isLogin = localStorage.getItem('user')
-  const isLogin = true
-  const isAdmin = true
+  // const isLogin = true
+  const [isLogin, setIsLogin] = useState()
+  const handleIsLogin = () => setIsLogin(true);
+  const handleIsLogout = () => setIsLogin(false);
+  
+  const isAdmin = false
+  
   return (
     <BrowserRouter>
-      {isLogin? <MainNavbar admin={isAdmin}/> : ""}
+      {isLogin? <MainNavbar out={handleIsLogout} admin={isAdmin}/> : ""}
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<PrivateOut login={isLogin} />}>
           {/* if false */}
-          <Route path="/" element={<LoginPages />} />
-          <Route path="/login" element={<LoginPages/>} />
+          <Route path="/" element={<LoginPages click={handleIsLogin}/>} />
+          <Route path="/login" element={<LoginPages click={handleIsLogin}/>} />
           <Route path="/register" element={<RegisterPages />} />
         </Route>
         <Route path="/" element={<PrivateRoute login={isLogin} />}>
@@ -31,7 +35,7 @@ function App() {
           <Route path="/edit-category/:id" element={<EditCategory />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
           <Route path="/complain" element={<ChatComplain />} />
-          {/* <Route path="/logout" /> */}
+          {/* <Route path="/logout"/> */}
         </Route>
       </Routes>
     </BrowserRouter>

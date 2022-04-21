@@ -6,7 +6,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 export const PrivateRoute = (props) => {
     const isLogin = props.login
   return (
-        isLogin?<Outlet/>:<Navigate to="/login"/>
+        isLogin?<Outlet/>:<Navigate to="/"/>
   )
 }
 //false

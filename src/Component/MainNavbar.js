@@ -9,12 +9,8 @@ const MainNavbar = (props) => {
   const isAdmin = props.admin
   const navigate = useNavigate()
 
-  const handleProf = () => {
-    navigate('/profile')
-  }
-
   return (
-    <Navbar bg="none" expand="lg" className="align-items-center navbar-light">
+    <Navbar bg="none" expand="lg" className="align-items-center navbar-dark">
       <Container>
         <Navbar.Brand onClick={()=>navigate('/')}><img src={Logo} width={50} alt="logo"/></Navbar.Brand>
         <Navbar.Toggle className="text-light" aria-controls="basic-navbar-nav" />
@@ -28,9 +24,9 @@ const MainNavbar = (props) => {
             <NavLink label="Product" color="text-light" click={()=>navigate('/product-list')} />  
             </>
             :
-            <NavLink label="Profile" color="text-light" click={handleProf}/>  
+            <NavLink label="Profile" color="text-light" click={()=>navigate('/profile')}/>  
           }
-            <NavLink label="Logout" color="text-light" to="#link"/>
+            <NavLink label="Logout" color="text-light"  click={props.out}/>
           </Nav>
         </Navbar.Collapse>
       </Container>
