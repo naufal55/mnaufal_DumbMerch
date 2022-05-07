@@ -9,5 +9,6 @@ import ProductList from "./ProductList";
 import Profile from "./Profile";
 import RegisterPages from "./RegisterPages";
 import ChatComplain from "./ChatComplain";
+import EditProfile from "./EditProfile";
 
-export {ChatComplain, EditProduct,EditCategory,Profile,DetailPage,NotFound,LoginPages, RegisterPages, HomePages, CategoryList,ProductList}
+export {ChatComplain,EditProfile, EditProduct,EditCategory,Profile,DetailPage,NotFound,LoginPages, RegisterPages, HomePages, CategoryList,ProductList}

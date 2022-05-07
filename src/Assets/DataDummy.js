@@ -32,4 +32,5 @@ const ListBarang = [
   },
 ];
 
-export default ListBarang;
+export default ListBarang; 
+

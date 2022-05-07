@@ -5,25 +5,28 @@ import foto from "../Assets/foto.png";
 import CardTransaction from "../Component/CardTransaction";
 import CardRating from "../Component/CardRating";
 import { useNavigate } from "react-router-dom";
-
+import MainButton from "../Atom/MainButton";
 
 const Profile = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true)
+  const handleShow = () => setShow(true);
 
-  const [star,setStar] = useState(0)
-  const handleRate = (set)=>{
-    console.log(star)
-    setStar(set)
-  }
-  const handleSubmit = ()=>{
+  const [star, setStar] = useState(0);
+  const handleRate = (set) => {
+    console.log(star);
+    setStar(set);
+  };
+  const handleSubmit = () => {
     setShow(false);
     localStorage.setItem("star", star);
-    navigate('/homepage')
-  }
- 
+    navigate("/homepage");
+  };
+  const handleChangeProfile = () => {
+    navigate("/edit-profile");
+  };
+
   return (
     <Container className="mt-3">
       <Row className="d-flex justify-content-center align-items-start my-auto bg-none">
@@ -57,25 +60,37 @@ const Profile = () => {
                   Necessitatibus, dolorem.
                 </p>
               </div>
+              <div>
+                <MainButton
+                  click={handleChangeProfile}
+                  color="success"
+                  type="button"
+                  btn="Change my profile"
+                />
+              </div>
             </Col>
           </Row>
         </div>
         <div className="col-sm-12 col-md-5">
           <h4 className="text-danger my-4 ">My Transaction</h4>
-         
-          <CardTransaction 
-            namabarang="Mouse" 
-            tglBeli="Saturday, 14 April 2022" 
-            harga="300.000" 
+
+          <CardTransaction
+            namabarang="Mouse"
+            tglBeli="Saturday, 14 April 2022"
+            harga="300.000"
             total="300.000"
             click={handleShow}
             val={localStorage.getItem("star")}
             per={localStorage.getItem("star")}
-            /> 
-          
+          />
         </div>
       </Row>
-      <CardRating rate={handleRate} submit={handleSubmit} show={show} close={handleClose}/>
+      <CardRating
+        rate={handleRate}
+        submit={handleSubmit}
+        show={show}
+        close={handleClose}
+      />
     </Container>
   );
 };

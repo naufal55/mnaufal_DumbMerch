@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainNavbar from "./Component/MainNavbar";
 import { PrivateOut, PrivateRoute } from "./Component/PrivateRoute";
-import { CategoryList, ChatComplain, DetailPage, EditCategory, EditProduct, HomePages, LoginPages, NotFound, ProductList, Profile, RegisterPages } from "./Pages";
+import { CategoryList,EditProfile, ChatComplain, DetailPage, EditCategory, EditProduct, HomePages, LoginPages, NotFound, ProductList, Profile, RegisterPages } from "./Pages";
 
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
           <Route path="/edit-category/:id" element={<EditCategory />} />
           <Route path="/edit-product/:id" element={<EditProduct />} />
           <Route path="/complain" element={<ChatComplain />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
           {/* <Route path="/logout"/> */}
         </Route>
       </Routes>
